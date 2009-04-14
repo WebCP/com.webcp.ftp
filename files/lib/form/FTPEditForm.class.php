@@ -32,23 +32,6 @@ class FTPEditForm extends FTPAddForm
 	}
 
 	/**
-	 * @see Form::validate()
-	 */
-	public function validate()
-	{
-		AbstractSecureForm :: validate();
-
-		if (empty($this->password))
-			throw new UserInputException('password', 'notempty');
-
-		if (empty($this->path))
-			throw new UserInputException('path', 'notempty');
-
-		if (!CPUtils :: validatePath(WCF :: getUser()->homeDir . '/'. $this->path, WCF :: getUser()->homeDir, true))
-			throw new UserInputException('path', 'invalid');
-	}
-
-	/**
 	 * @see Page::assignVariables()
 	 */
 	public function assignVariables()

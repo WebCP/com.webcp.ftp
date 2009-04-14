@@ -49,9 +49,6 @@ class FTPAddForm extends AbstractSecureForm
 
 		if (!CPUtils :: validatePath(WCF :: getUser()->homeDir . '/'. $this->path, WCF :: getUser()->homeDir))
 			throw new UserInputException('path', 'invalid');
-
-		if (WCF :: getUser()->ftpaccounts <= WCF :: getUser()->ftpaccountsUsed)
-			throw new UserInputException('ftp', 'tomuch');
 	}
 
 	/**
